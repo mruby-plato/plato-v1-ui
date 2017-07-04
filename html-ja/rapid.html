@@ -1,0 +1,216 @@
+          <div id="general_content" style="display: none">
+          <div class="pane" id="pane_general">
+            <div class="logo"></div>
+            <h3>アプリケーションの新規作成</h3>
+            <div class="content">
+              <h4>アプリケーション名</h4>
+              <div><input id="application_name" type="text" size="40" /></div>
+            </div>
+            <div class="content">
+              <h4>ターゲットボード</h4>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_none" value="none" checked />なし</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_enzi" value="enzi" />enzi</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_raspi" value="raspi" />Raspberry Pi</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_peach" value="peach" />GR-PEACH</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_qsip" value="qsip" />QSIP</label></div>
+            </div>
+            <div class="content">
+              <h4>オプションボード</h4>
+              <div><label><input type="radio" name="rap_option_board" id="option_board_none" value="none" />なし</label></div>
+              <div><label><input type="radio" name="rap_option_board" id="option_board_wt" value="White-Tiger" checked />White-Tiger</label></div>
+            </div>
+            <div class="content">
+              <h4>アプリケーションタイプ</h4>
+              <div><label><input type="radio" name="rap_app_type" id="app_sensortrigger" value="trigger" checked />センサ値をトリガにデータを処理する</label></div>
+              <div><label><input type="radio" name="rap_app_type" id="app_iotserver" value="server" />サーバにデータを送信する</label></div>
+            </div>
+            <div class="content">
+              <h4>ネットワークデバイス</h4>
+              <div><label><input type="radio" name="com_type" id="com_none" value="none" checked />なし</label></div>
+              <div><label><input type="radio" name="com_type" id="com_wifi" value="WiFi" />WiFi</label></div>
+              <div><label><input type="radio" name="com_type" id="com_ble" value="BLE" />BLE</label></div>
+              <div><label><input type="radio" name="com_type" id="com_zigbee" value="ZigBee" />ZigBee</label></div>
+              <div><label><input type="radio" name="com_type" id="com_ethernet" value="Ethernet" />Ethernet</label></div>
+            </div>
+            <div class="action_btn">
+              <span class="btn-next"><a onclick="changePane('dev');"></a></span>
+            </div>
+          </div><!-- pane_general -->
+
+          <div class="pane" id="pane_trigger" style="display: none">
+            <div id="back_button" class="btn-back" tabindex="-1"><a onclick="changePane('general');"></a></div>
+            <div class="logo"></div>
+            <h3>センサ値をトリガにデータを処理する</h3>
+            <div class="content">
+            <div class="trigger_interval">
+              秒周期でセンサ値を取得する
+              <input type="text" id="sensing_period" size="5" />
+            </div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action_btn">
+              <span><input type="button" class="btn btn-default" id="trigger_btn_add" value="追加" onclick="addTriggerCondition();" /></span>
+            </div>
+            <div class="andor">
+              <div><label><input type="radio" name="trigger_andor_rdo" id="trigger_andor_and" value="and" disabled="disabled" checked />かつ</label></div>
+              <div><label><input type="radio" name="trigger_andor_rdo" id="trigger_andor_or" value="or" disabled="disabled" />または</label></div>
+            </div>
+            <div class="sensor">
+              <div><label><input type="radio" name="trigger_sensor_rdo" id="trigger_sensor_tmp" onchange="sensorOnChange(this.value);" value="tmp" checked />温度が</label></div>
+              <div><label><input type="radio" name="trigger_sensor_rdo" id="trigger_sensor_hum" onchange="sensorOnChange(this.value);" value="hum" />湿度が</label></div>
+              <div><label><input type="radio" name="trigger_sensor_rdo" id="trigger_sensor_lx" onchange="sensorOnChange(this.value);" value="lx" />照度が</label></div>
+            </div>
+            <div class="trigger_value">
+              <input type="text" id="trigger_value" size="5" />
+            </div>
+            <div class="unit1">
+              <div><label><input type="radio" name="trigger_unit1" id="trigger_unit1_c" value="C" checked />°C</label></div>
+              <div><label><input type="radio" name="trigger_unit1" id="trigger_unit1_f" value="F" />°F</label></div>
+            </div>
+            <div class="unit2 hidden">
+              <div><label><input type="radio" name="trigger_unit2" id="trigger_unit2_percent" value="percent" checked />%</label></div>
+            </div>
+            <div class="unit3 hidden">
+              <div><label><input type="radio" name="trigger_unit3" id="trigger_unit3_lx" value="lx" checked />lx</label></div>
+            </div>
+            <div class="op">
+              <div><label><input type="radio" name="trigger_op" id="trigger_op_or_more" value=">=" checked />以上</label></div>
+              <div><label><input type="radio" name="trigger_op" id="trigger_op_larger_than" value=">" />より大きい</label></div>
+              <div><label><input type="radio" name="trigger_op" id="trigger_op_less_than" value="<" />より小さい</label></div>
+              <div><label><input type="radio" name="trigger_op" id="trigger_op_or_less" value="<=" />以下</label></div>
+            </div>
+            <div class="clear"></div>
+            <div class="param">
+              <select id="trigger_param" size="3"></select>
+              <span><input type="button" class="btn btn-default vtop" id="trigger_btn_delete" value="削除" onclick="deleteTriggerCondition();" /></span>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="move">
+              <div><label><input type="radio" name="trigger_continuous" id="trigger_continuous_false" value="false" checked />上記が発生したときに</label></div>
+              <div><label><input type="radio" name="trigger_continuous" id="trigger_continuous_true" value="true" />上記の状態が継続中の間 <input type="text" id="trigger_interval" size="5" />分毎に</label></div>
+            </div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action">
+              <div><label><input type="radio" name="trigger_action" id="trigger_action_ifttt" value="ifttt" onchange="changeTriggerAction()" checked />IFTTTに通知する</label></div>
+              <div class="mleft" id="trigger_ifttt_param">
+                Event: <input type="text" id="ifttt_event" size="16" /><br/>
+                Key: <input type="text" id="ifttt_key" size="48" />
+              </div>
+              <div><label><input type="radio" name="trigger_action" id="trigger_action_send" value="send_server" onchange="changeTriggerAction()" />サーバへデータを送信する</label></div>
+              <div><label><input type="radio" name="trigger_action" id="trigger_action_gpio" value="gpio_out" onchange="changeTriggerAction()" />選んだポートをONする</label></div>
+              <div class="mleft" id="trigger_gpio_param" hidden>
+                ポート <select id="gpio_pin">
+                  <option value="D6">D6</option>
+                  <option value="D7">D7</option>
+                  <option value="D8" selected>D8</option>
+                  <option value="D9">D9</option>
+                  <option value="ST0">ST0</option>
+                  <option value="ST1">ST1</option>
+                </select>
+                ON値 <select id="gpio_value" onchange="changeGPIOValue()"><option value="0" selected>LOW</option><option value="1">HIGH</option></select>
+                <br />
+                <label><input type="checkbox" id="gpio_not_occur" checked />発生しなくなったら<label id="gpio_not_value">HIGH</label>に戻す</label>
+              </div>
+              <div><label><input type="radio" name="trigger_action" id="trigger_action_script" value="action_script" onchange="changeTriggerAction()" /></label><textarea id="action_script_value" rows="2" cols="30" placeholder="やりたいことを入力"></textarea></div>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action_btn">
+              <span class="btn-create"><a onclick="createRapid();"></a></span>
+            </div>
+            </div>
+          </div><!-- pane-trigger -->
+
+          <div class="pane" id="pane_server" style="display: none">
+            <div id="back_button" class="btn-back" tabindex="-1"><a onclick="changePane('general');"></a></div>
+            <div class="logo"></div>
+            <h3>サーバにデータを送信する</h3>
+            <div class="content">
+            <div class="trigger_interval">
+              秒周期でセンサ値を取得する
+              <input type="text" id="sensing_period_server" size="5" />
+            </div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="trigger_interval">
+              分周期でデータを送信する
+              <input type="text" id="send_period" size="5" />
+            </div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action_btn">
+              <span><input type="button" class="btn btn-default" id="trigger_btn_add" value="追加" onclick="addSendValue();" /></span>
+            </div>
+            <div class="sensor">
+              <div><label><input type="radio" name="server_sensor_rdo" id="trigger_sensor_tmp" onchange="sensorOnChange(this.value);" value="tmp" checked />温度</label></div>
+              <div><label><input type="radio" name="server_sensor_rdo" id="trigger_sensor_hum" onchange="sensorOnChange(this.value);" value="hum" />湿度</label></div>
+              <div><label><input type="radio" name="server_sensor_rdo" id="trigger_sensor_lx" onchange="sensorOnChange(this.value);" value="lx" />照度</label></div>
+              <div><label><input type="radio" name="server_sensor_rdo" id="trigger_sensor_tim" onchange="sensorOnChange(this.value);" value="tim" />日時</label></div>
+            </div>
+            <div class="unit1">
+              <div><label><input type="radio" name="server_unit1" id="trigger_unit1_c" value="C" checked />°C</label></div>
+              <div><label><input type="radio" name="server_unit1" id="trigger_unit1_f" value="F" />°F</label></div>
+            </div>
+            <div class="unit2 hidden">
+              <div><label><input type="radio" name="server_unit2" id="trigger_unit2_percent" value="percent" checked />%</label></div>
+            </div>
+            <div class="unit3 hidden">
+              <div><label><input type="radio" name="server_unit3" id="trigger_unit3_lx" value="lx" checked />lx</label></div>
+            </div>
+            <div class="unit4 hidden">
+              <div><label><input type="radio" name="server_unit4" id="trigger_unit4_ymdhms" value="ymdhms" checked />年-月-日 時:分:秒</label></div>
+              <!--<div><label><input type="radio" name="server_unit4" id="trigger_unit4_hms" value="hms" />時:分:秒</label></div>-->
+            </div>
+            <div class="op">
+              <div><label><input type="radio" name="server_op" id="server_op_cur" value="last" checked />の値</label></div>
+              <div><label><input type="radio" name="server_op" id="server_op_ave" value="average" />の平均値</label></div>
+              <div><label><input type="radio" name="server_op" id="server_op_min" value="min" />の最小値</label></div>
+              <div><label><input type="radio" name="server_op" id="server_op_max" value="max" />の最大値</label></div>
+            </div>
+            <div class="clear"></div>
+            <div class="param">
+              <select id="server_param" size="4"></select>
+              <span><input type="button" class="btn btn-default vtop" id="trigger_btn_delete" value="削除" onclick="deleteSendValue();" /></span>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action">
+              <div><label><input type="radio" name="server_action" id="server_action_ifttt" value="ifttt" onchange="changeServerAction()" checked />IFTTTに通知する</label></div>
+              <div class="mleft" id="server_ifttt_param">
+                Event: <input type="text" id="ifttt_event_server" size="16" /><br />
+                Key: <input type="text" id="ifttt_key_server" size="48" />
+              </div>
+              <div><label><input type="radio" name="server_action" id="server_action_blocks" value="blocks" onchange="changeServerAction()" />MAGELLAN BLOCKSに通知する</label></div>
+              <div class="mleft" id="server_blocks_param" hidden>
+                エントリーポイント: <input type="text" id="blocks_entry_point" size="30" onchange="changeBlocksURL()" /><br />
+                プロジェクトID: <input type="text" id="blocks_project_id" size="30" onchange="changeBlocksURL()" /><br />
+                <font color="gray">URL: <label id="blocks_url"><font color="gray">http://magellan-iot-&ltEntry Point&gt-dot-&ltProject ID&gt.appspot.com</font></label></font><br />
+                APIトークン: <input type="text" id="blocks_api_token" size="40" /><br />
+                メッセージタイプ: <input type="text" id="blocks_msg_type" size="30" /><br />
+                識別ID: <input type="text" id="blocks_dev_info" size="40" placeholder="デバイスの識別情報を入力 (オプション)" />
+              </div>
+              <div><label><input type="radio" name="server_action" id="server_action_send" value="send_server" onchange="changeServerAction()" />サーバへデータを送信する</label></div>
+              <div><label><input type="radio" name="server_action" id="server_action_script" value="action_script" onchange="changeServerAction()" /></label><textarea id="server_action_script_value" rows="2" cols="30" placeholder="やりたいことを入力"></textarea></div>
+            </div>
+            <div class="clear"></div>
+            </div>
+            <hr />
+            <div class="content">
+            <div class="action_btn">
+              <span class="btn-create"><a onclick="createRapidServer();"></a></span>
+            </div>
+            </div>
+          </div><!-- pane-server -->
+          </div><!-- general_content -->

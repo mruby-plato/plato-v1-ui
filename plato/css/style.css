@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+.nav-header {
+  color: #74b1be;
+  font-size: 20px;
+  height: 80px;
+  background-color: #2f3241;
+}
+
+.nav-header div {
+  margin-left: 30px;
+  margin-top: 15px;
+}
+
+.nav-footer {
+  width: 260px;
+  position : absolute;
+  bottom : 0;
+}
+
+.pane-sm {
+  max-width: 260px;
+  min-width: 260px;
+}
+
+.pane table {
+  width: 1000px;
+  table-layout: fixed;
+}
+
+.pane h3 {
+  margin-left: 20px;
+}
+
+.pane h4 {
+  font-weight: bold;
+}
+
+.pane .content {
+  margin-left: 20px;
+}
+
+.pane .content label {
+  font-weight: bold;
+  font-size: 16px;
+  color: #565656;
+}
+
+.pane .content input {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.item-name {
+  width: 200px;
+  text-align: right;
+  vertical-align: center;
+}
+.item-detail {
+  vertical-align: center;
+}
+
+.sidebar {
+  color: #74b1be;
+  background-color: #2f3241;
+}
+
+.nav-group-item {
+  padding: 2px 10px 2px 25px;
+  font-size: 16px;
+  display: block;
+  color: #74b1be;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-group-item:active, .nav-group-item.active {
+  background-color: #20515b;
+}
+.nav-group-item:hover {
+  background-color: #13333a;
+}
+.nav-group-item .icon {
+  width: 19px;
+  height: 18px;
+  float: left;
+  color: #74b1be;
+  margin-top: -3px;
+  margin-right: 7px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.nav-group-title {
+  margin: 0;
+  padding: 10px 10px 2px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #74b1be;
+}
+
+table.input-tbl tr:active {
+  color: #333;
+  background-color: #fff;
+}
+
+table.ui-datepicker-calendar tr:active {
+  color: #333;
+  background-color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.search_input {
+  float: right;
+  margin-top: 20px;
+  margin-right: 150px;
+}
+
+.th05 {
+  width: 5%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.th15 {
+  width: 15%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.th25 {
+  width: 25%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.th30 {
+  width: 30%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.th40 {
+  width: 40%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.th45 {
+  width: 45%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+
+.trigger_interval {
+  font-size: 16px;
+  font-weight: bold;
+  color: #565656;
+  text-align: left;
+  direction: rtl;
+}
+
+.andor, .sensor, .trigger_value,
+.op, .value_type,
+.unit1, .unit2, .unit3 {
+  float: left;
+  font-weight: bold;
+  color: #565656;
+  margin-right: 10px;
+}
+
+.trigger_value {
+  direction: rtl;
+}
+
+.action_btn {
+  float: right;
+}
+
+.andor, .move, .action {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.param select {
+  font-weight: bold;
+  font-size: 16px;
+  width: 450px;
+}
+
+.param option {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.clear {
+  clear: both; 
+}
+
+.action label, .andor label, .sensor label, .trigger_value label,
+.op label,
+.unit1 label, .unit2 label, .unit3 label,
+.action_btn label, .move label {
+  font-size: 16px;
+}
+
+#trigger_move_value, #trigger_interval {
+  direction: rtl;
+}
+
+#mode_select {
+  width: 100%;
+}
+
+.vtop {
+  vertical-align: top;
+}
+
+.acenter {
+  width: 320px;
+  margin: 0 auto;
+}
+
+.rapidbtn a {
+  width: 148px;
+  height: 33px;
+  background: url("../images/rapid-off.png") no-repeat;
+  display: block;
+}
+.rapidbtn a:hover {
+  background: url("../images/rapid-on.png") no-repeat;
+}
+
+.advancedbtn a {
+  float: right;
+  width: 148px;
+  height: 33px;
+  background: url("../images/advanced-off.png") no-repeat;
+  display: block;
+}
+.advancedbtn a:hover {
+  background: url("../images/advanced-on.png") no-repeat;
+}
+
+.btn-next a {
+  width: 109px;
+  height: 49px;
+  background: url("../images/next-off.png") no-repeat;
+  display: block;
+}
+.btn-next a:hover {
+  background: url("../images/next-on.png") no-repeat;
+}
+
+.btn-create a {
+  width: 109px;
+  height: 49px;
+  background: url("../images/create-off.png") no-repeat;
+  display: block;
+}
+.btn-create a:hover {
+  background: url("../images/create-on.png") no-repeat;
+}
+
+.btn-back a {
+  width: 30px;
+  height: 15px;
+  background: url("../images/back.png") no-repeat;
+  display: block;
+  margin-top: 5px;
+}
+
+.logo {
+  width: 156px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background: url("../images/logo.png") no-repeat;
+  display: block;
+}
+
+label {
+  overflow: visible;
+}
+
+.mleft {
+  margin-left: 20px;
+}

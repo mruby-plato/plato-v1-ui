@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>plato</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/photon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+
+    <!-- Javascript -->
+    <script>
+      var lang_id = 'en';
+      var os = require('os');
+      var remote_app = require('electron').remote;
+      var fs = require('fs-extra');
+      var path = require('path');
+      var dialog = remote_app.dialog;
+      window.jQuery = window.$ = require('jquery');
+    </script>
+    <script type="text/javascript" src="js/plato-common.js"></script>
+    <script type="text/javascript" src="js/message-en.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/rapid.js"></script>
+    <script type="text/javascript" src="js/advanced.js"></script>
+
+    <script>
+      var all_gems = new Array();
+      var isAdvanced = false;
+      var setCondition = false;
+
+      $(function() {
+        $(document).ready(function() {
+          // load html
+          $.get("html/rapid.html", function(data) {
+            $("#rapid").replaceWith(data);
+          });
+          $.get("html/advanced.html", function(data) {
+            $("#advanced").replaceWith(data);
+          });
+
+          // load gem list
+          showGems('mgemlist/mgem-com.lst', 'tbl-mgem-com', true, false);
+          showGems('mgemlist/mgem-dev.lst', 'tbl-mgem-dev', true, true);
+          showGems('mgemlist/mgem-core.lst', 'tbl-mgem-std', false, true);
+          showGems('mgemlist/mgem-ext.lst', 'tbl-mgem-ext', false, true);
+        });
+      });
+
+      function closeWindow() {
+        window.close();
+      }
+
+      function changeMode(advanced) {
+        var sw = window.parent.screen.width;
+        var sh = window.parent.screen.height;
+        var win = remote_app.getCurrentWindow();
+        win.setResizable(true);
+        $('#mode_select').hide();
+        isAdvanced = advanced;
+        if (isAdvanced) { // advanced
+          win.setMinimumSize(800, 600);
+          win.setMaximumSize(Math.min(sw, 1280), Math.min(sh, 1024)); // set default size
+          win.maximize();
+          win.center();
+          win.setMaximumSize(sw, sh);   // reset maximum size
+          $('#general_content').hide();
+          $('#pane_nav').show();
+          $('#advanced_nav').show();
+          $('#advanced_content').show();
+          $('#application_name_ad').focus();
+        } else {
+          win.setMinimumSize(600, 600);
+          win.setMaximumSize(600, Math.min(sh, 960)); // set default size
+          win.maximize();
+          win.center();
+          win.setMaximumSize(600, sh);  // reset maximize size
+          $('#pane_nav').hide();
+          $('#advanced_nav').hide();
+          $('#advanced_content').hide();
+          $('#general_content').show();
+          $('#application_name').focus();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="window">
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+        <div class="pane-group">
+          <div id="mode_select">
+            <div class="logo"></div>
+            <div class="acenter">
+              <h3>Create a new application</h3>
+              <div>
+                <span class="advancedbtn"><a onclick="changeMode(true);"></a></span>
+                <span class="rapidbtn"><a onclick="changeMode(false);"></a></span>
+              </div>
+            </div>
+          </div>
+          <div id="rapid"></div>
+          <div id="advanced"></div>
+        </div><!-- pane-group -->
+      </div><!-- window-content -->
+
+    </div><!-- window -->
+  </body>
+</html>

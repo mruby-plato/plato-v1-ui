@@ -447,6 +447,30 @@ function createRapidServer() {
   return true;
 }
 
+// Change targe board
+function changeTargetBoard(val){
+  $("#gpio_pin option[value='LED1']").remove();
+  $("#gpio_pin option[value='LED2']").remove();
+  $("#gpio_pin option[value='LED3']").remove();
+  $("#gpio_pin option[value='LED4']").remove();
+  if (val === 'grpeach') {  // GR-PEACH
+    $("#gpio_pin").append($("<option>").val("LED1").text("LED1"));
+    $("#gpio_pin").append($("<option>").val("LED2").text("LED2"));
+    $("#gpio_pin").append($("<option>").val("LED3").text("LED3"));
+    $("#gpio_pin").append($("<option>").val("LED4").text("LED4"));
+  }
+}
+
+// Change option board
+function changeOptionBoard(val){
+  $("#gpio_pin option[value='ST0']").remove();
+  $("#gpio_pin option[value='ST1']").remove();
+  if (val === 'White-Tiger') {  // White-Tiger
+    $("#gpio_pin").append($("<option>").val("ST0").text("ST0"));
+    $("#gpio_pin").append($("<option>").val("ST1").text("ST1"));
+  }
+}
+
 // Change digital value HIGH/LOW
 function changeGPIOValue(){
   var hl = $('#gpio_value').val();

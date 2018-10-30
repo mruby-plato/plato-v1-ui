@@ -8,16 +8,16 @@
             </div>
             <div class="content">
               <h4>Target Board</h4>
-              <div><label><input type="radio" name="rap_target_board" id="target_board_none" value="none" checked />None</label></div>
-              <div><label><input type="radio" name="rap_target_board" id="target_board_enzi" value="enzi" />enzi</label></div>
-              <div><label><input type="radio" name="rap_target_board" id="target_board_raspi" value="raspi" />Raspberry Pi</label></div>
-              <div><label><input type="radio" name="rap_target_board" id="target_board_peach" value="grpeach" />GR-PEACH</label></div>
-              <div><label><input type="radio" name="rap_target_board" id="target_board_qsip" value="qsip" />QSIP</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_none" value="none" onchange="changeTargetBoard(this.value);" checked />None</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_enzi" value="enzi" onchange="changeTargetBoard(this.value);" />enzi</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_raspi" value="raspi" onchange="changeTargetBoard(this.value);" />Raspberry Pi</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_peach" value="grpeach" onchange="changeTargetBoard(this.value);" />GR-PEACH</label></div>
+              <div><label><input type="radio" name="rap_target_board" id="target_board_qsip" value="qsip" onchange="changeTargetBoard(this.value);" />QSIP</label></div>
             </div>
             <div class="content">
               <h4>Option Board</h4>
-              <div><label><input type="radio" name="rap_option_board" id="option_board_none" value="none" />None</label></div>
-              <div><label><input type="radio" name="rap_option_board" id="option_board_wt" value="White-Tiger" checked />White-Tiger</label></div>
+              <div><label><input type="radio" name="rap_option_board" id="option_board_none" value="none" onchange="changeOptionBoard(this.value);" />None</label></div>
+              <div><label><input type="radio" name="rap_option_board" id="option_board_wt" value="White-Tiger" onchange="changeOptionBoard(this.value);" checked />White-Tiger</label></div>
             </div>
             <div class="content">
               <h4>Application Type</h4>
